@@ -42,8 +42,8 @@ var firstAndPike = {
   initialize: function (){
     this.randCustPerHour();
     this.calcCookiesSoldPerHour();
-    this.sumCookiesPerDay();
     this.listCookiesPerHour();
+    this.sumCookiesPerDay();
   }
 }
 
@@ -89,8 +89,8 @@ var alki = {
   initialize: function (){
     this.randCustPerHour();
     this.calcCookiesSoldPerHour();
-    this.sumCookiesPerDay();
     this.listCookiesPerHour();
+    this.sumCookiesPerDay();
   }
 }
 
@@ -136,8 +136,8 @@ var capitolHill = {
   initialize: function (){
     this.randCustPerHour();
     this.calcCookiesSoldPerHour();
-    this.sumCookiesPerDay();
     this.listCookiesPerHour();
+    this.sumCookiesPerDay();
   }
 }
 
@@ -183,8 +183,8 @@ var seaTac = {
   initialize: function (){
     this.randCustPerHour();
     this.calcCookiesSoldPerHour();
-    this.sumCookiesPerDay();
     this.listCookiesPerHour();
+    this.sumCookiesPerDay();
   }
 }
 
@@ -230,8 +230,8 @@ var seaCenter = {
   initialize: function (){
     this.randCustPerHour();
     this.calcCookiesSoldPerHour();
-    this.sumCookiesPerDay();
     this.listCookiesPerHour();
+    this.sumCookiesPerDay();
   }
 }
 
