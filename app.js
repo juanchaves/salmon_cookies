@@ -33,21 +33,12 @@ function Store(locationName, minCustPerHour, maxCustPerHour,avgCookiesPerCust) {
   },
   this.listCookiesPerHour = function() {
     storeTable = document.getElementById('tablejs');
+    var trEl = document.createElement('tr');
     for (var i = 0; i < hours.length; i++) {
-      var trEl = document.createElement('tr');
 
       var tdEl = document.createElement('td');
       tdEl.textContent = this.cookiesSoldPerHour[i];
       trEl.appendChild(tdEl);
-
-      tdEl = document.createElement('td');
-      tdEl.textContent = this.cookiesSoldPerHour[i];
-      trEl.appendChild(tdEl);
-
-      tdEl = document.createElement('td');
-      tdEl.textContent = this.cookiesSoldPerHour[i];
-      trEl.appendChild(tdEl);
-
       storeTable.appendChild(trEl)
     }
   },
