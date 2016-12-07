@@ -18,7 +18,9 @@ function Store(locationName, minCustPerHour, maxCustPerHour,avgCookiesPerCust) {
   this.avgCookiesPerCust = avgCookiesPerCust;
   this.custPerHour = [],
   this.cookiesSoldPerHour = [],
+  this.totalCookiesSoldPerDay = [],
   allStores.push(this);
+
   this.randCustPerHour = function() {
     for (var i = 0; i < hours.length; i++) {
       var result = Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour;
@@ -31,35 +33,70 @@ function Store(locationName, minCustPerHour, maxCustPerHour,avgCookiesPerCust) {
       this.cookiesSoldPerHour.push(result);
     }
   },
-  this.listCookiesPerHour = function() {
-    storeTable = document.getElementById('tablejs');
-    var trEl = document.createElement('tr');
-    for (var i = 0; i < hours.length; i++) {
-
-      var tdEl = document.createElement('td');
-      tdEl.textContent = this.cookiesSoldPerHour[i];
-      trEl.appendChild(tdEl);
-      storeTable.appendChild(trEl)
-    }
-  },
-  this.sumCookiesPerDay = function (){
-    var totalCookiesPerDay = this.cookiesSoldPerHour.reduce(function (a,b) {
+  this.calctotalCookiesPerDay = function (){
+    var sumCookiesPerDay = this.cookiesSoldPerHour.reduce(function (a,b) {
       return a + b;
     }, 0);
-    storeTable = document.getElementById('tablejs');
+    this.totalCookiesSoldPerDay.push(sumCookiesPerDay);
+  },
+  this.makeDataRow = function() {
     var trEl = document.createElement('tr');
     var tdEl = document.createElement('td');
-    tdEl.textContent = totalCookiesPerDay;
+    tdEl.textContent = this.locationName;
+    trEl.appendChild(tdEl);
+
+    for (var i = 0; i < hours.length; i++) {
+      tdEl =  document.createElement('td');
+      tdEl.textContent = this.cookiesSoldPerHour[i];
+      trEl.appendChild(tdEl);
+    }
+
+    tdEl = document.createElement('td');
+    tdEl.textContent = this.totalCookiesSoldPerDay;
+    trEl.appendChild(tdEl);
+
     storeTable.appendChild(trEl);
+
+
   },
-  this.initialize = function (){
+
     this.randCustPerHour();
     this.calcCookiesSoldPerHour();
-    this.listCookiesPerHour();
-    this.sumCookiesPerDay();
-  }
-  this.initialize();
-}
+    this.calctotalCookiesPerDay();
 
+    console.log(this.totalCookiesSoldPerDay);
+}
+//
 new Store('1st and Pike', 23, 65, 6.3);
 new Store('Alki', 2, 16, 4.6);
+new Store('Capitol Hill', 20, 38, 2.3);
+new Store('SeaTac Airport',3, 24, 1.2);
+new Store('Seattle Center',11, 38, 3.7);
+
+
+
+function makeHeaderRow() {
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+  thEl.textContent = ' ';
+  trEl.appendChild(thEl);
+
+  for (var i = 0; i < hours.length; i++){
+    thEl = document.createElement('th');
+    thEl.textContent = hours[i];
+    trEl.appendChild(thEl);
+  }
+  thEl = document.createElement('th');
+  thEl.textContent = 'Daily Location Total';
+  trEl.appendChild(thEl);
+
+  storeTable.appendChild(trEl);
+}
+
+///////////////////////////////////////////////////Call Functions
+//Calls Header Row
+makeHeaderRow();
+//Calls Location (row) name and Cookie Sales
+for (var i = 0; i < allStores.length; i++) {
+  allStores[i].makeDataRow();
+}
