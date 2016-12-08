@@ -2,7 +2,7 @@
 
 //////GLOBAL VARIABES & ARRAYS
 
-var storeInput = document.getElementById('storeInput');
+var storeForm = document.getElementById('storeForm');
 var storeTable = document.getElementById('tablejs');
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 // var storeParams [
@@ -46,6 +46,7 @@ function Store(locationName, minCustPerHour, maxCustPerHour,avgCookiesPerCust) {
     this.totalCookiesSoldPerDay.push(sumCookiesPerDay);
   },
   this.makeDataRow = function() {
+    //STRETCH GOAL ---> Add here a delete button
     var trEl = document.createElement('tr');
     var tdEl = document.createElement('td');
     tdEl.textContent = this.locationName;
@@ -116,6 +117,12 @@ function makeLocationNameHeaderRow() {
 
 function handleAddModifyStoreDataSubmit(event) {
 
+//local handle variables
+var storeName = event.target.locationNameInput.value;
+var minCust = event.target.minCustPerHourInput.value;
+// var maxCust = event.target.maxCustPerHourInput.value;
+// var avgCookies = event.target.avgCookiesPerCustInput.value;
+
 // console.log('log of the event object', event);
 // console.log('log of the event.target', event.target);
 // console.log('log of the event.target.NAME1', event.target.NAME1);
@@ -125,22 +132,44 @@ function handleAddModifyStoreDataSubmit(event) {
 
   event.preventDefault();
 
-  //Store Name User Input
-  if (event.target.locationNameInput) {
-
+  //Button triggers 'nuke' & rebuild
+  if (event.target.button) {
+    storeTable.innerHTML = '';
+    console.log('You just cleared the table!');
+    masterFunctionCall();
+    console.log('and then rebuilt it!');
   }
 
-  var newStore =
+  if (storeName || minCust){
+    var newStore = new Store(storeName,minCust);
+    allStores.push(newStore);
+  }
+  // var newStore = new Store(storeName);
 
+  event.target.locationNameInput.value = null;
+  event.target.minCustPerHourInput.value = null;
+
+  // allStores.push(newStore);
+
+  masterFunctionCall();
 }
-
-
 ///////////////////////////////////////////////////Call Functions
-//Calls Header Row (Hours of Operation)
-makeHeaderRow();
-//Calls Location (row) name and Cookie Sales
-makeLocationNameHeaderRow();
-//Calls Location (row) name and Cookie Sales
-for (var i = 0; i < allStores.length; i++) {
-  allStores[i].makeDataRow();
+
+//One Function to call them all!
+
+function masterFunctionCall() {
+  //Calls Header Row (Hours of Operation)
+  makeHeaderRow();
+  //Calls Location (row) name and Cookie Sales
+  makeLocationNameHeaderRow();
+  //Calls Location (row) name and Cookie Sales
+  for (var i = 0; i < allStores.length; i++) {
+    allStores[i].makeDataRow();
+  }
 }
+
+masterFunctionCall();
+
+////////Event Listeners
+
+storeForm.addEventListener('submit', handleAddModifyStoreDataSubmit);
