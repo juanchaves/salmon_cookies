@@ -91,7 +91,7 @@ function makeHeaderRow() {
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
   trEl = document.createElement('tr');
-  thEl.textContent = 'Hours of Operation';
+  thEl.textContent = '';
   trEl.appendChild(thEl);
 
   for (var i = 0; i < hours.length; i++){
@@ -106,52 +106,48 @@ function makeHeaderRow() {
   storeTable.appendChild(trEl);
 }
 
-function makeLocationNameHeaderRow() {
+function makeFooterRow() {
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
-  thEl.textContent = 'Location Name';
+  trEl = document.createElement('tr');
+  thEl.textContent = '';
   trEl.appendChild(thEl);
-  storeTable.appendChild(trEl);
-}
 
+  for (var i = 0; i < hours.length; i++){
+    thEl = document.createElement('th');
+    thEl.textContent = hours[i];
+    trEl.appendChild(thEl);
+  }
+  thEl = document.createElement('th');
+  thEl.textContent = 'Daily Location Total';
+  trEl.appendChild(thEl);
+
+  storeTable.appendChild(trEl);
 
 function handleAddModifyStoreDataSubmit(event) {
 
-//local handle variables
-var storeName = event.target.locationNameInput.value;
-var minCust = event.target.minCustPerHourInput.value;
-// var maxCust = event.target.maxCustPerHourInput.value;
-// var avgCookies = event.target.avgCookiesPerCustInput.value;
-
-// console.log('log of the event object', event);
-// console.log('log of the event.target', event.target);
-// console.log('log of the event.target.NAME1', event.target.NAME1);
-// console.log('log of the event.target.NAME1.value', event.target.NAME1.value);
-// console.log('log of the event.target.NAME2', event.target.NAME2);
-// console.log('log of the event.target.NAME2.value', event.target.NAME2.value);
-
   event.preventDefault();
+//local handle variables
+  var storeName = event.target.locationNameInput.value;
+  var minCust = event.target.minCustPerHourInput.value;
+  var maxCust = event.target.maxCustPerHourInput.value;
+  var avgCookies = event.target.avgCookiesPerCustInput.value;
+  var newStore = new Store(storeName, minCust, maxCust, avgCookies);
 
   //Button triggers 'nuke' & rebuild
   if (event.target.button) {
+    newStore;
+    // allStores.push(newStore);
     storeTable.innerHTML = '';
     console.log('You just cleared the table!');
     masterFunctionCall();
     console.log('and then rebuilt it!');
   }
 
-  if (storeName || minCust){
-    var newStore = new Store(storeName,minCust);
-    allStores.push(newStore);
-  }
-  // var newStore = new Store(storeName);
-
   event.target.locationNameInput.value = null;
   event.target.minCustPerHourInput.value = null;
-
-  // allStores.push(newStore);
-
-  masterFunctionCall();
+  event.target.maxCustPerHourInput.value = null;
+  event.target.avgCookiesPerCustInput.value = null;
 }
 ///////////////////////////////////////////////////Call Functions
 
@@ -160,8 +156,6 @@ var minCust = event.target.minCustPerHourInput.value;
 function masterFunctionCall() {
   //Calls Header Row (Hours of Operation)
   makeHeaderRow();
-  //Calls Location (row) name and Cookie Sales
-  makeLocationNameHeaderRow();
   //Calls Location (row) name and Cookie Sales
   for (var i = 0; i < allStores.length; i++) {
     allStores[i].makeDataRow();
