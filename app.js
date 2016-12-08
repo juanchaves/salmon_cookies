@@ -14,7 +14,7 @@ var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '
 // ];
 var allStores = [];
 
-//Constructors
+//Constructor
 
 ////Table Data Constructor
 function Store(locationName, minCustPerHour, maxCustPerHour,avgCookiesPerCust) {
@@ -85,7 +85,7 @@ new Store('Capitol Hill', 20, 38, 2.3);
 new Store('SeaTac Airport',3, 24, 1.2);
 new Store('Seattle Center',11, 38, 3.7);
 
-////////GLOBAL FUNCTIONS
+////////GLOBAL FUNCTIONS///////////////////////////
 
 function makeHeaderRow() {
   var trEl = document.createElement('tr');
@@ -106,23 +106,25 @@ function makeHeaderRow() {
   storeTable.appendChild(trEl);
 }
 
-function makeFooterRow() {
-  var trEl = document.createElement('tr');
-  var thEl = document.createElement('th');
-  trEl = document.createElement('tr');
-  thEl.textContent = '';
-  trEl.appendChild(thEl);
-
-  for (var i = 0; i < hours.length; i++){
-    thEl = document.createElement('th');
-    thEl.textContent = hours[i];
-    trEl.appendChild(thEl);
-  }
-  thEl = document.createElement('th');
-  thEl.textContent = 'Daily Location Total';
-  trEl.appendChild(thEl);
-
-  storeTable.appendChild(trEl);
+//STRETCH GOAL
+// function makeFooterRow() {
+//   var trEl = document.createElement('tr');
+//   var thEl = document.createElement('th');
+//   trEl = document.createElement('tr');
+//   thEl.textContent = '';
+//   trEl.appendChild(thEl);
+//
+//   for (var i = 0; i < hours.length; i++){
+//     thEl = document.createElement('th');
+//     thEl.textContent = hours[i];
+//     trEl.appendChild(thEl);
+//   }
+//   thEl = document.createElement('th');
+//   thEl.textContent = 'Daily Location Total';
+//   trEl.appendChild(thEl);
+//
+//   storeTable.appendChild(trEl);
+// }
 
 function handleAddModifyStoreDataSubmit(event) {
 
@@ -137,7 +139,6 @@ function handleAddModifyStoreDataSubmit(event) {
   //Button triggers 'nuke' & rebuild
   if (event.target.button) {
     newStore;
-    // allStores.push(newStore);
     storeTable.innerHTML = '';
     console.log('You just cleared the table!');
     masterFunctionCall();
