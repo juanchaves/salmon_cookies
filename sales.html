@@ -6,6 +6,28 @@
   </head>
   <body>
     <h1>Store Sales</h1>
+
+    <form id ="storeForm">
+        <fieldset>
+            <legend>Add or Modify Store</legend>
+
+            <label for="locationNameInput">Location Name: </label>
+            <input name="locationNameInput" type="text" placeholder="Name"/>
+
+            <label for="minCustPerHourInput">Min Customer/Hour: </label>
+            <input name="minCustPerHourInput" type="number" required placeholder="Min"/>
+
+            <label for="maxCustPerHourInput">Max Customer/Hour: </label>
+            <input name="maxCustPerHourInput" type="number" required placeholder="Max"/>
+
+            <label for="avgCookiesPerCustInput">Avg Cookies/Customer: </label>
+            <input name="avgCookiesPerCustInput" type="number" step="any" required placeholder="Avg"/>
+
+            <button type="submit" name="button">Add/Modify</button>
+
+        </fieldset>
+    </form>
+
     <table id="tablejs"></table>
 
   <script src="app.js"></script>
