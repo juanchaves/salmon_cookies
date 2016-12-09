@@ -56,7 +56,7 @@ h1 {
 nav, nav ul, nav li, nav a {
 
   list-style-type: none;
-  margin-bottom: : 15px;
+  margin-bottom: 15px;
   padding: : 3px;
   width: 160px;
   display: block;
@@ -79,5 +79,24 @@ a:hover{
 
 }
 
+.button {
+    display: block;
+    width: 115px;
+    height: 25px;
+    background: #4E9CAF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.social {
+  
+}
+
+article {
+  overflow: hidden;
+}
 /*     background-color: #5A7A5F; */
 /*     background-color: #eae6d7; */
