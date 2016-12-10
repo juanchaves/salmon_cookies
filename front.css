@@ -1,7 +1,6 @@
 * {
   border: 1px solid black;
-  background-color: #5A7A5F;
-  font-family: 'Roboto', sans-serif;
+  background-color: #1a1411;
 }
 html {
   max-width: 100%;
@@ -9,7 +8,7 @@ html {
 }
 
 body {
-  min-width: 1000px;
+  /*min-width:;*/
 }
 #container {
   padding-left: 0px;
@@ -22,30 +21,36 @@ body {
 
 #left {
   width: 40%;
-  min-height: 560px;
+  min-height: 100%;
   padding: 0 20px;
   right: 0;
   left: 0;
   margin-left: -20px;
   position: fixed;
+  float: left;
 }
 
 #center {
   padding: 10px 10px;
   width: 45%;
   min-height: 550px;
-  background-color: #eae6d7;
-  overflow-y: auto;
-  overflow-x: hidden;
-  /*white-space: nowrap;*/
+  background-color: #0d243c;
+  overflow-x: scroll;
+  font-family: 'Roboto', sans-serif;
+  color: #99958c;
+  font-weight: 100;
 }
 
 #right {
   width: 9%;
   min-height: 560px;
-  padding: 0 10px;
+  padding: 50px 10px;
   margin-right: -50px;
   position: fixed;
+  float: right;
+  font-family: 'Roboto', sans-serif;
+  color: #99958c;
+  font-weight: 100;
 }
 
 h1 {
@@ -53,10 +58,18 @@ h1 {
    font-family: 'Ultra', serif;
    font-weight: 300;
    font-size: 2.5em;
-   color: #eadfB9;
+   color: #57809e;
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
    padding: 0% 0% 2% 1%;
-   margin: 0% 8% 4% 35%;
+   margin: 0% 8% 4% 30%;
 
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #99958c;
+  font-weight: 300;
+  font-size: 1.5em;
 }
 
 nav, nav ul, nav li, nav a {
@@ -75,10 +88,18 @@ nav{
   margin-left: 35%;
 }
 
+ul, li, a {
+  list-style-type: none;
+  text-decoration: none;
+  padding-left: 3px;
+  color: #99958c;
+
+}
+
 a:active {
   outline-width: thick;
-  font-weight: 700
-  color: inherit;
+  font-weight: 700;
+  color: white;
 }
 
 a:hover{
@@ -87,24 +108,30 @@ a:hover{
 
 .button {
     display: block;
-    width: 115px;
+    width: 160px;
     height: 25px;
-    background: #4E9CAF;
-    padding: 10px;
+    background: #57809e;
+    padding: 10px 0px 5px 0px;
     text-align: center;
+    font-size: 24px;
+    border: 1px solid black;
     border-radius: 5px;
+    font-weight: 300;
     color: white;
-    font-weight: bold;
+    /*-webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;*/
 }
 
 i.icon_facebook:before {
     content: "\f082";
     font-family: FontAwesome;
-    font-size:60px;
+    font-size: 60px;
     font-style: normal;
     font-weight: normal;
     text-decoration: inherit;
-    color:#eadfB9;
+    color:#57809e;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     /*padding-right: 0.5em;
     position: absolute;
     top: 10px;
@@ -118,7 +145,8 @@ i.icon_instagram:before {
     font-style: normal;
     font-weight: normal;
     text-decoration: inherit;
-    color:#eadfB9;
+    color:#57809e;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     /*padding-right: 0.5em;
     position: absolute;
     top: 10px;
@@ -132,16 +160,37 @@ i.icon_twitter:before {
     font-style: normal;
     font-weight: normal;
     text-decoration: inherit;
-    color:#eadfB9;
+    color:#57809e;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     /*padding-right: 0.5em;
     position: absolute;
     top: 10px;
     left: 0;*/
 }
 
+i.icon_cal_events:before {
+    content: "\f073";
+    font-family: FontAwesome;
+    font-size:20px;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color:#57809e;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    padding-right: 0.5em;
+    /*position: absolute;
+    top: 10px;
+    left: 0;*/
+}
+
 article {
   padding: 3px 3px 3px 3px;
-  overflow: scroll;
+}
+
+.main_text {
+  font-family: 'Roboto', sans-serif;
+  color: #99958c;
+  font-weight: 100;
 }
 /*     background-color: #5A7A5F; */
 /*     background-color: #eae6d7; */
