@@ -2,6 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <!-- <link rel="stylesheet" type="text/css" href="reset.css"> -->
+    <link rel="stylesheet" type="text/css" href="back.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Ultra" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <title></title>
   </head>
   <body>
@@ -12,7 +16,7 @@
             <legend>Add or Modify Store</legend>
 
             <label for="locationNameInput">Location Name: </label>
-            <input name="locationNameInput" type="text" placeholder="Name"/>
+            <input name="locationNameInput" type="text" required placeholder="Name"/>
 
             <label for="minCustPerHourInput">Min Customer/Hour: </label>
             <input name="minCustPerHourInput" type="number" required placeholder="Min"/>
@@ -28,7 +32,9 @@
         </fieldset>
     </form>
 
-    <table id="tablejs"></table>
+    <div class="tabledata">
+      <table id="tablejs"></table>
+    </div>
 
   <script src="app.js"></script>
   </body>
