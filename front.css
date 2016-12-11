@@ -183,6 +183,22 @@ i.icon_cal_events:before {
     left: 0;*/
 }
 
+i.icon_cicon_sign_in:before {
+    content: "\f090";
+    font-family: FontAwesome;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color:#57809e;
+    padding-right: 0.5em;
+    padding-top: 0.5em;
+    top: 10px;
+    /*position: absolute;
+
+    left: 0;*/
+}
+
 article {
   padding: 3px 3px 3px 3px;
 }
